@@ -9,7 +9,9 @@
 
 ## CSCI S-89 **Deep Learning** (Python)
 
-## Professors: Kurochin, PhD
+## Professors: Dmitry V. Kurochkin, PhD
+
+Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs, Harvard University
 
 ## Author: **Dai-Phuong Ngo (Liam)**
 

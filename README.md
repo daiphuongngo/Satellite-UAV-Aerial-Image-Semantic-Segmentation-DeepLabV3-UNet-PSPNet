@@ -59,7 +59,7 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 * ✅ **UNet**: Custom lightweight encoder-decoder architecture for pixel-wise segmentation.
 * ✅ **DeepLabV3+**: Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
 * ✅ **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module.
-
+* ✅ **SAM2 Support in WherobotsAI Raster Inference**: Integrate support for Meta AI's Segment Anything Model 2 (SAM2) and Google DeepMind's OWLv2 models for text-prompted inference, and create 2 new Raster Inference functions (RS_Text_to_BBoxes and RS_Text_to_Segments) for converting text prompts to segmentation and object detection results.
 ---
 
 ### 🧠 Training Pipeline

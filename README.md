@@ -27,29 +27,25 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 
 ```bash
 .
-├── data/
-│   ├── uavid_dataset/
-│   │   ├── train_data/{Images,Labels}
-│   │   ├── val_data/{Images,Labels}
-│   │   └── test_data/{Images,Labels}
-│   ├── bhuvan_landcover/
-│   │   ├── train_image, train_mask, test_image, test_mask
-│   └── semantic_tiles/
-│       ├── Tile 1/images, masks
-│       ├── Tile 2/images, masks
-├── models/
-│   ├── unet.py
-│   ├── deeplabv3plus.py
-│   └── pspnet.py
-├── utils/
-│   ├── data_loader.py
-│   ├── metrics.py
-│   └── plot_utils.py
-├── notebooks/
-│   └── training_pipeline.ipynb
-├── requirements.txt
-├── README.md
-└── train.py
+project_root_on_Drive/
+├── modified_uavid_dataset/
+│   ├── train_data/
+│   │   ├── Labels/                ← Original MUD masks
+│   │   └── Labels_new/            ← Recolorized MUD masks
+│   └── val_data/
+│       ├── Labels/                ← Original MUD masks (validation)
+│       └── Labels_new/            ← Recolorized MUD masks (validation)
+│
+├── Semantic segmentation dataset/
+│   └── Tile 1/
+│       ├── masks/                 ← Original SIM masks
+│       └── masks_new/             ← Recolorized SIM masks
+│
+└── Land Cover Classification Bhuvan Satellite Data/
+    ├── train_mask/                ← Original SSAI-style masks (train)
+    ├── train_mask_new/            ← Recolorized SSAI masks (train)
+    ├── test_mask/                 ← Original SSAI-style masks (test)
+    └── test_mask_new/             ← Recolorized SSAI masks (test)
 ```
 
 ---

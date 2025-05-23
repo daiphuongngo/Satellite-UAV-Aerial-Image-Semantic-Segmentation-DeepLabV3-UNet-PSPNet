@@ -161,12 +161,20 @@ numpy
 | 10    | 0.9655           | 0.9628         | -3.94               | -38.17           | 0.0807       | 0.0876     |
 
 ```
+---
+### U-Net
+
+![download (13)](https://github.com/user-attachments/assets/8d061d37-45b4-4da4-a50e-85be2e7d8562)
+
+![download (12)](https://github.com/user-attachments/assets/ce94758f-42e5-4d97-a5fb-9227a4367ca2)
+
+![download (15)](https://github.com/user-attachments/assets/725284d4-8762-4609-82c2-cfa961527f1d)
 
 ---
 ##  Model Comparison – Satellite Image Segmentation
 
 | Model         | Params (M) | Accuracy (%) | mIoU (%)    | Val Loss | Inference Time (ms/img) |
 |---------------|------------|--------------|-------------|----------|--------------------------|
-| UNet          | ~7.8       | 94.5         | 78.6        | 0.14     | 28                       |
-| PSPNet        | ~10.3      | 95.2         | 81.3        | 0.12     | 35                       |
-| **DeepLabV3+**| **11.8**   | **96.6**     | *unstable*  | **0.0876** | **33**                  |
+| UNet          | N/A       | 87         | N/A       | 0.3383  | 82                       |
+| PSPNet        | N/A      | N/A         | N/A        | N/A     | N/A                       |
+| **DeepLabV3+**| **11.8**   | **96.6**     | *unstable*  | **0.0876** | **233**                  |

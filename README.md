@@ -134,3 +134,13 @@ numpy
 
 ## Processing Pipeline
 
+### DeepLabV3+
+
+![Loss Accuracy](https://github.com/user-attachments/assets/d657cea5-8c85-4f4d-a43a-9caffbb6eac9)
+
+![download (10)](https://github.com/user-attachments/assets/80eb47e8-ad65-4fb5-8eef-e55873d6f15e)
+
+![download (9)](https://github.com/user-attachments/assets/867ac23e-a88e-4aff-a37c-d6853fe1563b)
+
+
+

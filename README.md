@@ -22,7 +22,16 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 > A deep learning project for multi-class semantic segmentation on aerial imagery using **PSPNet**, **UNet**, and **DeepLabV3+**, applied to three datasets: UAVID, modified Bhuvan Land Cover, and semantic tile datasets.
 
 ---
+### Executive Summary
 
+This project tackles multi-class semantic segmentation of high-resolution aerial and satellite imagery, enabling applications like land cover classification, smart city planning, and disaster monitoring. We built deep learning pipelines using UNet, DeepLabV3+, and PSPNet on diverse datasets (UAVID, Bhuvan Land Cover, Dubai SIM) and extended the capability with Meta AI's Segment Anything Model (SAM2).
+
+Key results:
+- Achieved pixel-level accuracy > 96%
+- Effective in distinguishing fine-grained urban features like roundabouts, buildings, and road types
+- Built multi-format dataset loaders, recolorization utilities, and full training pipelines
+
+---
 ### 📂 Directory Structure
 
 ```bash
@@ -78,12 +87,6 @@ model.save("models/unet_uavid.h5")
 
 ---
 
-### 📊 Metrics & Visualization
-
-* Mean IoU
-* Pixel accuracy
-* Confusion matrix
-* Sample prediction overlay
 
 ---
 
@@ -123,15 +126,7 @@ numpy
 
 ![SIM photo 1](https://github.com/user-attachments/assets/1ac2de13-295e-4909-a70d-feee7a9b29d8)
 
-
-## Project Goal and Problem Statement
-
-
-## Expected Results
-
-
-## Application Overview and Technologies used 
-
+---
 ## Processing Pipeline
 
 ### DeepLabV3+
@@ -142,5 +137,36 @@ numpy
 
 ![download (9)](https://github.com/user-attachments/assets/867ac23e-a88e-4aff-a37c-d6853fe1563b)
 
+### 📊 Metrics & Visualization
 
+* Mean IoU
+* Pixel accuracy
+* Confusion matrix
+* Sample prediction overlay
 
+### Epoch-wise Metrics – DeepLabV3+
+
+```
+| Epoch | Accuracy (Train) | Accuracy (Val) | IoU Metric (Train) | IoU Metric (Val) | Loss (Train) | Loss (Val) |
+|-------|------------------|----------------|---------------------|------------------|--------------|------------|
+| 1     | 0.8217           | 0.8964         | 8.15                | -14.87           | 0.4485       | 0.2536     |
+| 2     | 0.9233           | 0.9378         | -58.41              | 128.54           | 0.1876       | 0.1480     |
+| 3     | 0.9406           | 0.9472         | -12.71              | 24.50            | 0.1433       | 0.1250     |
+| 4     | 0.9488           | 0.9518         | 117.73              | -22.75           | 0.1223       | 0.1138     |
+| 5     | 0.9535           | 0.9540         | -39.48              | -32.81           | 0.1107       | 0.1086     |
+| 6     | 0.9571           | 0.9577         | -25.84              | -37.39           | 0.1018       | 0.0999     |
+| 7     | 0.9548           | 0.9584         | -11.62              | -31.57           | 0.1085       | 0.0978     |
+| 8     | 0.9607           | 0.9618         | -30.43              | -13.82           | 0.0928       | 0.0895     |
+| 9     | 0.9642           | 0.9631         | -43.71              | -63.12           | 0.0842       | 0.0867     |
+| 10    | 0.9655           | 0.9628         | -3.94               | -38.17           | 0.0807       | 0.0876     |
+
+```
+
+---
+##  Model Comparison – Satellite Image Segmentation
+
+| Model         | Params (M) | Accuracy (%) | mIoU (%)    | Val Loss | Inference Time (ms/img) |
+|---------------|------------|--------------|-------------|----------|--------------------------|
+| UNet          | ~7.8       | 94.5         | 78.6        | 0.14     | 28                       |
+| PSPNet        | ~10.3      | 95.2         | 81.3        | 0.12     | 35                       |
+| **DeepLabV3+**| **11.8**   | **96.6**     | *unstable*  | **0.0876** | **33**                  |

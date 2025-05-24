@@ -215,6 +215,12 @@ Here are tables summarizing the performance of my updated U-Net model on both th
 | Unlabeled   | 0.91      | 0.86   | 0.89     | 94,188    |
 ```
 
+![download (18)](https://github.com/user-attachments/assets/ef3f5457-f966-44f6-812f-5bf4c1c9f341)
+
+![download (19)](https://github.com/user-attachments/assets/a892f224-13ef-4928-8216-7d869838b304)
+
+![download (20)](https://github.com/user-attachments/assets/72d4edf4-a595-41b7-8950-85c3cdb9c966)
+
 These results are based on a U-Net trained with grayscale masks (class-indexed PNGs), improving pixel label accuracy by avoiding rounding issues inherent in RGB encoding.
 
 ---

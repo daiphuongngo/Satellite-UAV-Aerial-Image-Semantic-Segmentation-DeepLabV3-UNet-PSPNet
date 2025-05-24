@@ -170,6 +170,53 @@ numpy
 
 ![download (15)](https://github.com/user-attachments/assets/725284d4-8762-4609-82c2-cfa961527f1d)
 
+### U-Net (2nd trial) 
+
+Here are tables summarizing the performance of my updated U-Net model on both the **training** and **validation** sets using class-indexed grayscale masks.
+
+---
+
+### 📈 Model Performance Summary
+
+#### 🔧 Training Metrics
+
+```markdown
+| Metric     | Value     |
+|------------|-----------|
+| Accuracy   | 94.52%    |
+| Precision  | 94.53%    |
+| Recall     | 94.52%    |
+| F1 Score   | 94.52%    |
+```
+
+#### 🧪 Validation Metrics
+
+```markdown
+| Metric     | Value     |
+|------------|-----------|
+| Accuracy   | 94.46%    |
+| Precision  | 94.46%    |
+| Recall     | 94.46%    |
+| F1 Score   | 94.46%    |
+```
+
+
+### Per-Class Performance (Validation)
+
+```markdown
+| Class       | Precision | Recall | F1-Score | Support   |
+|-------------|-----------|--------|----------|-----------|
+| Background  | 0.98      | 0.98   | 0.98     | 529,906   |
+| Building    | 0.91      | 0.92   | 0.92     | 1,146,031 |
+| Land        | 0.96      | 0.95   | 0.95     | 4,742,653 |
+| Road        | 0.85      | 0.85   | 0.85     | 930,346   |
+| Vegetation  | 0.92      | 0.93   | 0.93     | 1,071,618 |
+| Water       | 0.99      | 0.99   | 0.99     | 1,971,018 |
+| Unlabeled   | 0.91      | 0.86   | 0.89     | 94,188    |
+```
+
+These results are based on a U-Net trained with grayscale masks (class-indexed PNGs), improving pixel label accuracy by avoiding rounding issues inherent in RGB encoding.
+
 ---
 ##  Model Comparison – Satellite Image Segmentation
 

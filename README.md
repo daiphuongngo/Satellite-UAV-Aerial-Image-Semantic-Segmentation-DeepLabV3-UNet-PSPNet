@@ -24,7 +24,7 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 ---
 ### Executive Summary
 
-This project tackles multi-class semantic segmentation of high-resolution aerial and satellite imagery, enabling applications like land cover classification, smart city planning, and disaster monitoring. We built deep learning pipelines using UNet, DeepLabV3+, and PSPNet on diverse datasets (UAVID, Bhuvan Land Cover, Dubai SIM) and extended the capability with Meta AI's Segment Anything Model (SAM2).
+This project tackles multi-class semantic segmentation of high-resolution aerial and satellite imagery, enabling applications like land cover classification, smart city planning, and disaster monitoring. I built deep learning pipelines using UNet, DeepLabV3+, and PSPNet on diverse datasets (UAVID, Bhuvan Land Cover, Dubai SIM) and extended the capability with Meta AI's Segment Anything Model (SAM2).
 
 Key results:
 - Achieved pixel-level accuracy > 96%
@@ -200,7 +200,17 @@ Here are tables summarizing the performance of my updated U-Net model on both th
 | F1 Score   | 94.46%    |
 ```
 
+---
+### PSPNet
 
+![download (24)](https://github.com/user-attachments/assets/c155dd92-3903-45d4-9dcd-ec62271e140f)
+
+![download (26)](https://github.com/user-attachments/assets/02ed3209-b058-4264-810c-64a3c54979cf)
+
+![download (25)](https://github.com/user-attachments/assets/1969ace2-329b-4874-b865-c57c071bbefb)
+
+
+---
 ### Per-Class Performance (Validation)
 
 ```markdown

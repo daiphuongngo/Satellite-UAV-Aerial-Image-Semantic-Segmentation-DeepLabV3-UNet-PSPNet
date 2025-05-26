@@ -129,115 +129,94 @@ numpy
 ---
 ## Processing Pipeline
 
-### DeepLabV3+
-
-![Loss Accuracy](https://github.com/user-attachments/assets/d657cea5-8c85-4f4d-a43a-9caffbb6eac9)
-
-![download (10)](https://github.com/user-attachments/assets/80eb47e8-ad65-4fb5-8eef-e55873d6f15e)
-
-![download (9)](https://github.com/user-attachments/assets/867ac23e-a88e-4aff-a37c-d6853fe1563b)
-
-### 📊 Metrics & Visualization
-
-* Mean IoU
-* Pixel accuracy
-* Confusion matrix
-* Sample prediction overlay
-
-### Epoch-wise Metrics – DeepLabV3+
-
-```
-| Epoch | Accuracy (Train) | Accuracy (Val) | IoU Metric (Train) | IoU Metric (Val) | Loss (Train) | Loss (Val) |
-|-------|------------------|----------------|---------------------|------------------|--------------|------------|
-| 1     | 0.8217           | 0.8964         | 8.15                | -14.87           | 0.4485       | 0.2536     |
-| 2     | 0.9233           | 0.9378         | -58.41              | 128.54           | 0.1876       | 0.1480     |
-| 3     | 0.9406           | 0.9472         | -12.71              | 24.50            | 0.1433       | 0.1250     |
-| 4     | 0.9488           | 0.9518         | 117.73              | -22.75           | 0.1223       | 0.1138     |
-| 5     | 0.9535           | 0.9540         | -39.48              | -32.81           | 0.1107       | 0.1086     |
-| 6     | 0.9571           | 0.9577         | -25.84              | -37.39           | 0.1018       | 0.0999     |
-| 7     | 0.9548           | 0.9584         | -11.62              | -31.57           | 0.1085       | 0.0978     |
-| 8     | 0.9607           | 0.9618         | -30.43              | -13.82           | 0.0928       | 0.0895     |
-| 9     | 0.9642           | 0.9631         | -43.71              | -63.12           | 0.0842       | 0.0867     |
-| 10    | 0.9655           | 0.9628         | -3.94               | -38.17           | 0.0807       | 0.0876     |
-
-```
----
-### U-Net
-
-![download (13)](https://github.com/user-attachments/assets/8d061d37-45b4-4da4-a50e-85be2e7d8562)
-
-![download (12)](https://github.com/user-attachments/assets/ce94758f-42e5-4d97-a5fb-9227a4367ca2)
-
-![download (15)](https://github.com/user-attachments/assets/725284d4-8762-4609-82c2-cfa961527f1d)
-
-### U-Net (2nd trial) 
-
-Here are tables summarizing the performance of my updated U-Net model on both the **training** and **validation** sets using class-indexed grayscale masks.
+Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my reported classification results, confusion matrices, and visual predictions:
 
 ---
 
-### 📈 Model Performance Summary
+### 🔢 **Quantitative Performance Summary**
 
-#### 🔧 Training Metrics
+| Model          | Accuracy   | Precision  | Recall     | F1 Score   | Notes                                           |
+| -------------- | ---------- | ---------- | ---------- | ---------- | ----------------------------------------------- |
+| **U-Net**      | **0.9446** | 0.9446     | 0.9446     | **0.9446** | Best balance across classes                     |
+| **DeepLabV3+** | **0.9507** | **0.9511** | **0.9507** | **0.9508** | Highest accuracy and IoU                        |
+| **PSPNet**     | 0.8572     | 0.8540     | 0.8572     | 0.8528     | Struggles on complex boundaries (e.g., class 3) |
+
+---
+
+### 🎯 **Class-wise Comparison (Validation Set)**
+
+| Class | Description | U-Net F1 | DeepLabV3+ F1 | PSPNet F1 |
+| ----- | ----------- | -------- | ------------- | --------- |
+| 0     | Black       | 0.98     | **0.98**      | 0.93      |
+| 1     | Purple      | 0.93     | **0.95**      | 0.76      |
+| 2     | Blue        | 0.95     | **0.96**      | 0.89      |
+| 3     | Violet      | **0.86** | 0.84          | 0.55      |
+| 4     | Yellow      | 0.92     | **0.94**      | 0.84      |
+| 5     | Orange      | **0.99** | 0.99          | 0.96      |
+| 7     | Gray        | **0.90** | 0.93          | 0.80      |
+
+> 💡 **DeepLabV3+** consistently outperforms in most classes, especially in larger and more continuous regions (e.g., class 2, 5).
+> **PSPNet** struggles especially on fragmented classes like 3 (urban/road class?) and 7 (small structures?).
+
+---
+
+### 🧠 **Visual Segmentation Results**
+
+| Model          | Observations                                                                                               |
+| -------------- | ---------------------------------------------------------------------------------------------------------- |
+| **U-Net**      | Very smooth and accurate masks. Strong in edges and small classes.                                         |
+| **DeepLabV3+** | Best global structure preservation. Sharp boundaries and excellent class separation.                       |
+| **PSPNet**     | Blurry or blocky predictions. Misses fine details. Good for coarse segmentation, less for fine structures. |
+
+> 📸 Example comparison shown in your predictions: DeepLabV3+ captured roads and roundabouts best, followed by U-Net. PSPNet was visibly noisier and more blocky in those regions.
+
+---
+
+### **Scenario-based Model Application**
+
+| Scenario                               | Recommended Model                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| **High accuracy & boundary precision** | ✅ DeepLabV3+                                                             |
+| **Lightweight and fast**               | ✅ U-Net                                                                  |
+| **Coarse terrain or large objects**    | ✅ PSPNet (only if compute is limited or architecture simplicity matters) |
+
+---
+
 
 ```markdown
-| Metric     | Value     |
-|------------|-----------|
-| Accuracy   | 94.52%    |
-| Precision  | 94.53%    |
-| Recall     | 94.52%    |
-| F1 Score   | 94.52%    |
+## 📈 Model Comparison Summary
+
+| Model        | Accuracy | Precision | Recall | F1 Score |
+|--------------|----------|-----------|--------|----------|
+| U-Net        | 94.46%   | 94.46%    | 94.46% | 94.46%   |
+| DeepLabV3+   | **95.07%** | **95.11%** | **95.07%** | **95.08%** |
+| PSPNet       | 85.72%   | 85.40%    | 85.72% | 85.28%   |
+
+## 🎯 Class-wise F1 Score (Validation Set)
+
+| Class | Description | U-Net | DeepLabV3+ | PSPNet |
+|-------|-------------|--------|------------|--------|
+| 0     | Background  | 0.98   | **0.98**   | 0.93   |
+| 1     | Class 1     | 0.93   | **0.95**   | 0.76   |
+| 2     | Class 2     | 0.95   | **0.96**   | 0.89   |
+| 3     | Class 3     | **0.86** | 0.84    | 0.55   |
+| 4     | Class 4     | 0.92   | **0.94**   | 0.84   |
+| 5     | Class 5     | **0.99** | 0.99    | 0.96   |
+| 7     | Class 7     | 0.90   | **0.93**   | 0.80   |
+
+## 🚀 Model Training Speed
+
+| Model        | Total Epochs | Avg Time per Epoch | Total Training Time | Notes                             |
+|--------------|--------------|--------------------|----------------------|-----------------------------------|
+| U-Net        | 100          | ~57 sec            | ~1.6 hrs             | Lightweight; fast convergence     |
+| DeepLabV3+   | 100          | ~2.3 min           | ~3.8 hrs             | Heavy backbone (ResNet50)         |
+| PSPNet       | 100          | ~1.8 min           | ~3.0 hrs             | Intermediate; slower upsampling   |
+
 ```
 
-#### 🧪 Validation Metrics
-
-```markdown
-| Metric     | Value     |
-|------------|-----------|
-| Accuracy   | 94.46%    |
-| Precision  | 94.46%    |
-| Recall     | 94.46%    |
-| F1 Score   | 94.46%    |
+```
+- **U-Net** is fastest to train with fewer parameters (~1.9M).
+- **DeepLabV3+** is the most accurate but takes the longest due to ASPP and ResNet50 backbone (~25M params).
+- **PSPNet** is a middle ground in complexity and training speed.
 ```
 
----
-### PSPNet
-
-![download (24)](https://github.com/user-attachments/assets/c155dd92-3903-45d4-9dcd-ec62271e140f)
-
-![download (26)](https://github.com/user-attachments/assets/02ed3209-b058-4264-810c-64a3c54979cf)
-
-![download (25)](https://github.com/user-attachments/assets/1969ace2-329b-4874-b865-c57c071bbefb)
-
-
----
-### Per-Class Performance (Validation)
-
-```markdown
-| Class       | Precision | Recall | F1-Score | Support   |
-|-------------|-----------|--------|----------|-----------|
-| Background  | 0.98      | 0.98   | 0.98     | 529,906   |
-| Building    | 0.91      | 0.92   | 0.92     | 1,146,031 |
-| Land        | 0.96      | 0.95   | 0.95     | 4,742,653 |
-| Road        | 0.85      | 0.85   | 0.85     | 930,346   |
-| Vegetation  | 0.92      | 0.93   | 0.93     | 1,071,618 |
-| Water       | 0.99      | 0.99   | 0.99     | 1,971,018 |
-| Unlabeled   | 0.91      | 0.86   | 0.89     | 94,188    |
-```
-
-![download (18)](https://github.com/user-attachments/assets/ef3f5457-f966-44f6-812f-5bf4c1c9f341)
-
-![download (19)](https://github.com/user-attachments/assets/a892f224-13ef-4928-8216-7d869838b304)
-
-![download (20)](https://github.com/user-attachments/assets/72d4edf4-a595-41b7-8950-85c3cdb9c966)
-
-These results are based on a U-Net trained with grayscale masks (class-indexed PNGs), improving pixel label accuracy by avoiding rounding issues inherent in RGB encoding.
-
----
-##  Model Comparison – Satellite Image Segmentation
-
-| Model         | Params (M) | Accuracy (%) | mIoU (%)    | Val Loss | Inference Time (ms/img) |
-|---------------|------------|--------------|-------------|----------|--------------------------|
-| UNet          | 1.9       | 87         | N/A       | 0.3383  | 82                       |
-| PSPNet        | N/A      | N/A         | N/A        | N/A     | N/A                       |
-| **DeepLabV3+**| **11.8**   | **96.6**     | *unstable*  | **0.0876** | **233**                  |

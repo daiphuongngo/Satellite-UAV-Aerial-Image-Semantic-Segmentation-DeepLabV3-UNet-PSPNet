@@ -115,8 +115,7 @@ numpy
 ### 📌 Future Work
 
 * Integrate **transformer-based** segmentation (SegFormer)
-* Apply **SAM** (Segment Anything Model) as pre-segmentation
-* Deploy to web app using **Streamlit** or **Gradio**
+* etc
 
 ---
 

@@ -129,7 +129,40 @@ numpy
 ---
 ## Processing Pipeline
 
+
+
+
 Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my reported classification results, confusion matrices, and visual predictions:
+
+---
+
+### DeepLabV3+
+
+![DeepLabV3+](https://github.com/user-attachments/assets/e6388423-8d75-437e-ac1f-45ef908ae5c6)
+
+![DeepLabV3+ - predicted output 2](https://github.com/user-attachments/assets/36815bf6-dd92-4f0d-87d7-f77bf4c531ab)
+
+![DeepLabV3+ - predicted output 1](https://github.com/user-attachments/assets/c29f0dd6-a2cb-4ed9-b640-377757b7e3a2)
+
+---
+
+### UNet
+
+![UNet](https://github.com/user-attachments/assets/2a530c09-f852-48c4-84e3-6ac3067ba9be)
+
+![UNet - predicted output 2](https://github.com/user-attachments/assets/e1f3fcbd-29e9-478b-8b88-70bbb88928b3)
+
+![UNet - predicted output 1](https://github.com/user-attachments/assets/edd2e254-263a-4959-a27d-940b6cfe11fa)
+
+---
+
+### PSPNet
+
+![PSP Net](https://github.com/user-attachments/assets/2a0b475f-6055-4d84-8d24-5a7d576aaba7)
+
+![PSP Net - predicted output 2](https://github.com/user-attachments/assets/778af281-a7c6-4fb3-97d2-b5f590358867)
+
+![PSP Net - predicted output 1](https://github.com/user-attachments/assets/4a5e2f25-f859-4960-a985-a7f7a85bc3d3)
 
 ---
 

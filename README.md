@@ -183,17 +183,17 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 ---
 
 
-```markdown
-## 📈 Model Comparison Summary
 
+## 📈 Model Comparison Summary
+```markdown
 | Model        | Accuracy | Precision | Recall | F1 Score |
 |--------------|----------|-----------|--------|----------|
 | U-Net        | 94.46%   | 94.46%    | 94.46% | 94.46%   |
 | DeepLabV3+   | **95.07%** | **95.11%** | **95.07%** | **95.08%** |
 | PSPNet       | 85.72%   | 85.40%    | 85.72% | 85.28%   |
-
+```
 ## 🎯 Class-wise F1 Score (Validation Set)
-
+```markdown
 | Class | Description | U-Net | DeepLabV3+ | PSPNet |
 |-------|-------------|--------|------------|--------|
 | 0     | Background  | 0.98   | **0.98**   | 0.93   |
@@ -203,9 +203,9 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | 4     | Class 4     | 0.92   | **0.94**   | 0.84   |
 | 5     | Class 5     | **0.99** | 0.99    | 0.96   |
 | 7     | Class 7     | 0.90   | **0.93**   | 0.80   |
-
+```
 ## 🚀 Model Training Speed
-
+```markdown
 | Model        | Total Epochs | Avg Time per Epoch | Total Training Time | Notes                             |
 |--------------|--------------|--------------------|----------------------|-----------------------------------|
 | U-Net        | 100          | ~57 sec            | ~1.6 hrs             | Lightweight; fast convergence     |
@@ -214,9 +214,9 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 ```
 
-```
+
 - **U-Net** is fastest to train with fewer parameters (~1.9M).
 - **DeepLabV3+** is the most accurate but takes the longest due to ASPP and ResNet50 backbone (~25M params).
 - **PSPNet** is a middle ground in complexity and training speed.
-```
+
 

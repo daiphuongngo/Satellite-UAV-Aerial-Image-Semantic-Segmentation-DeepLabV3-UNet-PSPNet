@@ -170,8 +170,8 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 | Model          | Accuracy   | Precision  | Recall     | F1 Score   | Notes                                           |
 | -------------- | ---------- | ---------- | ---------- | ---------- | ----------------------------------------------- |
-| **U-Net**      | **0.9446** | 0.9446     | 0.9446     | **0.9446** | Best balance across classes                     |
-| **DeepLabV3+** | **0.9507** | **0.9511** | **0.9507** | **0.9508** | Highest accuracy and IoU                        |
+| **U-Net**      | 0.9446     | 0.9446     | 0.9446     | 0.9446     | Best balance across classes                     |
+| **DeepLabV3+** | 0.9507     | 0.9511     | 0.9507     | 0.9508     | Highest accuracy and IoU                        |
 | **PSPNet**     | 0.8572     | 0.8540     | 0.8572     | 0.8528     | Struggles on complex boundaries (e.g., class 3) |
 
 ---
@@ -180,13 +180,13 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 | Class | Description | U-Net F1 | DeepLabV3+ F1 | PSPNet F1 |
 | ----- | ----------- | -------- | ------------- | --------- |
-| 0     | Black       | 0.98     | **0.98**      | 0.93      |
-| 1     | Purple      | 0.93     | **0.95**      | 0.76      |
-| 2     | Blue        | 0.95     | **0.96**      | 0.89      |
-| 3     | Violet      | **0.86** | 0.84          | 0.55      |
-| 4     | Yellow      | 0.92     | **0.94**      | 0.84      |
-| 5     | Orange      | **0.99** | 0.99          | 0.96      |
-| 7     | Gray        | **0.90** | 0.93          | 0.80      |
+| 0     | Black       | 0.98     | 0.98          | 0.93      |
+| 1     | Purple      | 0.93     | 0.95          | 0.76      |
+| 2     | Blue        | 0.95     | 0.96          | 0.89      |
+| 3     | Violet      | 0.86     | 0.84          | 0.55      |
+| 4     | Yellow      | 0.92     | 0.94          | 0.84      |
+| 5     | Orange      | 0.99     | 0.99          | 0.96      |
+| 7     | Gray        | 0.90     | 0.93          | 0.80      |
 
 > 💡 **DeepLabV3+** consistently outperforms in most classes, especially in larger and more continuous regions (e.g., class 2, 5).
 > **PSPNet** struggles especially on fragmented classes like 3 (urban/road class?) and 7 (small structures?).
@@ -207,8 +207,8 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 ### **Scenario-based Model Application**
 
-| Scenario                               | Recommended Model                                                        |
-| -------------------------------------- | ------------------------------------------------------------------------ |
+| Scenario                               | Recommended Model                                                         |
+| -------------------------------------- | ------------------------------------------------------------------------- |
 | **High accuracy & boundary precision** | ✅ DeepLabV3+                                                             |
 | **Lightweight and fast**               | ✅ U-Net                                                                  |
 | **Coarse terrain or large objects**    | ✅ PSPNet (only if compute is limited or architecture simplicity matters) |
@@ -222,24 +222,24 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | Model        | Accuracy | Precision | Recall | F1 Score |
 |--------------|----------|-----------|--------|----------|
 | U-Net        | 94.46%   | 94.46%    | 94.46% | 94.46%   |
-| DeepLabV3+   | **95.07%** | **95.11%** | **95.07%** | **95.08%** |
+| DeepLabV3+   | 95.07%   | 95.11%    | 95.07% | 95.08%   |
 | PSPNet       | 85.72%   | 85.40%    | 85.72% | 85.28%   |
 ```
 ## 🎯 Class-wise F1 Score (Validation Set)
 ```markdown
-| Class | Description | U-Net | DeepLabV3+ | PSPNet |
+| Class | Description | U-Net  | DeepLabV3+ | PSPNet |
 |-------|-------------|--------|------------|--------|
-| 0     | Background  | 0.98   | **0.98**   | 0.93   |
-| 1     | Class 1     | 0.93   | **0.95**   | 0.76   |
-| 2     | Class 2     | 0.95   | **0.96**   | 0.89   |
-| 3     | Class 3     | **0.86** | 0.84    | 0.55   |
-| 4     | Class 4     | 0.92   | **0.94**   | 0.84   |
-| 5     | Class 5     | **0.99** | 0.99    | 0.96   |
-| 7     | Class 7     | 0.90   | **0.93**   | 0.80   |
+| 0     | Background  | 0.98   | 0.98       | 0.93   |
+| 1     | Class 1     | 0.93   | 0.95       | 0.76   |
+| 2     | Class 2     | 0.95   | 0.96       | 0.89   |
+| 3     | Class 3     | 0.86   | 0.84       | 0.55   |
+| 4     | Class 4     | 0.92   | 0.94       | 0.84   |
+| 5     | Class 5     | 0.99   | 0.99       | 0.96   |
+| 7     | Class 7     | 0.90   | 0.93       | 0.80   |
 ```
 ## 🚀 Model Training Speed
 ```markdown
-| Model        | Total Epochs | Avg Time per Epoch | Total Training Time | Notes                             |
+| Model        | Total Epochs | Avg Time per Epoch | Total Training Time  | Notes                             |
 |--------------|--------------|--------------------|----------------------|-----------------------------------|
 | U-Net        | 100          | ~57 sec            | ~1.6 hrs             | Lightweight; fast convergence     |
 | DeepLabV3+   | 100          | ~2.3 min           | ~3.8 hrs             | Heavy backbone (ResNet50)         |

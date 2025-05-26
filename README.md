@@ -237,19 +237,23 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | 5     | Class 5     | 0.99   | 0.99       | 0.96   |
 | 7     | Class 7     | 0.90   | 0.93       | 0.80   |
 ```
-## 🚀 Model Training Speed
+
+## 🚀 Model Training Speed and Complexity
 ```markdown
-| Model        | Total Epochs | Avg Time per Epoch | Total Training Time  | Notes                             |
-|--------------|--------------|--------------------|----------------------|-----------------------------------|
-| U-Net        | 100          | ~57 sec            | ~1.6 hrs             | Lightweight; fast convergence     |
-| DeepLabV3+   | 100          | ~2.3 min           | ~3.8 hrs             | Heavy backbone (ResNet50)         |
-| PSPNet       | 100          | ~1.8 min           | ~3.0 hrs             | Intermediate; slower upsampling   |
+
+
+| Model        | Total Epochs | Avg Time per Epoch | Total Training Time  | Total Params     | Size (MB) | Notes                                      |
+|--------------|--------------|--------------------|----------------------|------------------|-----------|--------------------------------------------|
+| U-Net        | 100          | ~57 sec            | ~1.6 hrs             | 1.94M            | ~7.41 MB  | Fastest; lightest; best for small datasets |
+| DeepLabV3+   | 100          | ~2.3 min           | ~3.8 hrs             | 11.85M           | ~45.22 MB | Best accuracy; ResNet50 + ASPP             |
+| PSPNet       | 100          | ~1.8 min           | ~3.0 hrs             | 24.86M           | ~94.82 MB | Heaviest; large memory footprint           |
 
 ```
 
 
-- **U-Net** is fastest to train with fewer parameters (~1.9M).
-- **DeepLabV3+** is the most accurate but takes the longest due to ASPP and ResNet50 backbone (~25M params).
-- **PSPNet** is a middle ground in complexity and training speed.
+- **U-Net** has the smallest number of parameters, ideal for faster iteration or limited hardware.
+- **DeepLabV3+** strikes a strong balance between accuracy and efficiency.
+- **PSPNet** is more complex, requiring more VRAM but still achieves competitive results.
+
 
 

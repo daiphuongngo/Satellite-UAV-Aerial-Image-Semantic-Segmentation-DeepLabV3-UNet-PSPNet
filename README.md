@@ -59,15 +59,15 @@ project_root_on_Drive/
 
 ---
 
-### 🚀 Model Architectures
+### Model Architectures
 
-* ✅ **UNet**: Custom lightweight encoder-decoder architecture for pixel-wise segmentation.
-* ✅ **DeepLabV3+**: Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
-* ✅ **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module.
-* ✅ **SAM2 Support in WherobotsAI Raster Inference**: Integrate support for Meta AI's Segment Anything Model 2 (SAM2) and Google DeepMind's OWLv2 models for text-prompted inference, and create 2 new Raster Inference functions (RS_Text_to_BBoxes and RS_Text_to_Segments) for converting text prompts to segmentation and object detection results.
+* **UNet**: Custom lightweight encoder-decoder architecture for pixel-wise segmentation.
+* **DeepLabV3+**: Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
+* **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module.
+* **SAM2 Support in WherobotsAI Raster Inference**: Integrate support for Meta AI's Segment Anything Model 2 (SAM2) and Google DeepMind's OWLv2 models for text-prompted inference, and create 2 new Raster Inference functions (RS_Text_to_BBoxes and RS_Text_to_Segments) for converting text prompts to segmentation and object detection results.
 ---
 
-### 🧠 Training Pipeline
+### Training Pipeline
 
 ```python
 # train.py
@@ -100,7 +100,7 @@ model.save("models/unet_uavid.h5")
 
 ---
 
-### 📦 Requirements
+### Requirements
 
 ```txt
 tensorflow>=2.9
@@ -112,7 +112,7 @@ numpy
 
 ---
 
-### 📌 Future Work
+### Future Work
 
 * Integrate **transformer-based** segmentation (SegFormer)
 * etc
@@ -127,8 +127,6 @@ numpy
 
 ---
 ## Processing Pipeline
-
-
 
 
 Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my reported classification results, confusion matrices, and visual predictions:
@@ -175,7 +173,7 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 ---
 
-### 🎯 **Class-wise Comparison (Validation Set)**
+### **Class-wise Comparison (Validation Set)**
 
 | Class | Description | U-Net F1 | DeepLabV3+ F1 | PSPNet F1 |
 | ----- | ----------- | -------- | ------------- | --------- |
@@ -192,7 +190,7 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 ---
 
-### 🧠 **Visual Segmentation Results**
+### **Visual Segmentation Results**
 
 | Model          | Observations                                                                                               |
 | -------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -216,7 +214,7 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 
 
 
-## 📈 Model Comparison Summary
+## Model Comparison Summary
 ```markdown
 | Model        | Accuracy | Precision | Recall | F1 Score |
 |--------------|----------|-----------|--------|----------|
@@ -224,7 +222,7 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | DeepLabV3+   | 95.07%   | 95.11%    | 95.07% | 95.08%   |
 | PSPNet       | 85.72%   | 85.40%    | 85.72% | 85.28%   |
 ```
-## 🎯 Class-wise F1 Score (Validation Set)
+## Class-wise F1 Score (Validation Set)
 ```markdown
 | Class | Description | U-Net  | DeepLabV3+ | PSPNet |
 |-------|-------------|--------|------------|--------|
@@ -237,7 +235,7 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | 7     | Class 7     | 0.90   | 0.93       | 0.80   |
 ```
 
-## 🚀 Model Training Speed and Complexity
+## Model Training Speed and Complexity
 ```markdown
 
 
@@ -248,7 +246,6 @@ Here's a **comparison summary of U-Net, DeepLabV3+, and PSPNet** based on my rep
 | PSPNet       | 100          | ~1.8 min           | ~3.0 hrs             | 24.86M           | ~94.82 MB | Heaviest; large memory footprint           |
 
 ```
-
 
 - **U-Net** has the smallest number of parameters, ideal for faster iteration or limited hardware.
 - **DeepLabV3+** strikes a strong balance between accuracy and efficiency.

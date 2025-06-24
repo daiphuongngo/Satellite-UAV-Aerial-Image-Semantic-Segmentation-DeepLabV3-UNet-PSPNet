@@ -15,7 +15,7 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 
 ## Author: **Dai-Phuong Ngo (Liam)**
 
-## Timeline: June 23 - August 12, 2025
+## Timeline: June 23 - August 6, 2025
 
 ## 🌍 Satellite & UAV Aerial Image Semantic Segmentation
 

@@ -94,9 +94,9 @@ model.save("models/unet_uavid.h5")
 
 | Dataset           | Classes                    | Source                   |
 | ----------------- | -------------------------- | ------------------------ |
-| UAVID             | Building, Road, Tree, etc  | UAV urban scenes         |
-| Bhuvan Land Cover | Land, Water, Urban, Forest | Indian satellite imagery |
-| Semantic Tiles    | Custom semantic tiles      | Dubai aerial data      |
+| UAVID  (supporting)             | Building, Road, Tree, etc  | UAV urban scenes         |
+| Bhuvan Land Cover (supporting) | Land, Water, Urban, Forest | Indian satellite imagery |
+| Semantic Tiles (main)    | Custom semantic tiles      | Dubai aerial data      |
 
 ---
 

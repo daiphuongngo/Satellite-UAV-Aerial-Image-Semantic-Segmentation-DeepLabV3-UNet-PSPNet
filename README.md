@@ -115,6 +115,7 @@ numpy
 ### Future Work
 
 * Integrate **transformer-based** segmentation (SegFormer)
+* Apply built model's prediction on new satellite images
 * etc
 
 ---

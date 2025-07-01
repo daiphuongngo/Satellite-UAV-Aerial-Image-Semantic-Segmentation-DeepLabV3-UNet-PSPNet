@@ -29,7 +29,7 @@ This project tackles multi-class semantic segmentation of high-resolution aerial
 Key results:
 - Achieved pixel-level accuracy > 96% approximately
 - Effective in distinguishing fine-grained urban features like roundabouts, buildings, and road types
-- Built multi-format dataset loaders, recolorization utilities, and full training pipelines
+- Built multi-format dataset loaders, recolorization utilities and full training pipelines
 
 ---
 ### 📂 Directory Structure

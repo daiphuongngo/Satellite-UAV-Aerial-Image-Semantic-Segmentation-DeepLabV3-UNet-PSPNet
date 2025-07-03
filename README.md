@@ -62,7 +62,7 @@ project_root_on_Drive/
 ### Model Architectures
 
 * **UNet**: Custom lightweight encoder-decoder architecture for pixel-wise segmentation.
-* **DeepLabV3+**: Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
+* **DeepLabV3+** (assumed to be best model): Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
 * **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module.
 
 ---

@@ -19,7 +19,7 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 
 ## 🌍 Satellite & UAV Aerial Image Semantic Segmentation
 
-A deep learning project for multi-class semantic segmentation on aerial imagery using **PSPNet**, **UNet** and **DeepLabV3+**, applied to three datasets: UAVID, modified Bhuvan Land Cover, and semantic tile datasets.
+A deep learning project for multi-class semantic segmentation on aerial imagery using **PSPNet**, **UNet** and **DeepLabV3+**, applied to three datasets: UAVID, modified Bhuvan Land Cover and semantic tile datasets.
 
 ---
 ### Executive Summary

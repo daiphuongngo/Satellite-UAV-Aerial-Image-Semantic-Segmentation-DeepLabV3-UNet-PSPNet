@@ -130,7 +130,7 @@ numpy
 ## Processing Pipeline
 
 
-Here's a **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my reported classification results, confusion matrices, and visual predictions:
+Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my reported classification results, confusion matrices, and visual predictions:
 
 ---
 

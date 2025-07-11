@@ -36,11 +36,11 @@ Key results:
 ### Project Overview
 
 Semantic segmentation is a critical task in remote sensing and environmental monitoring. My project focuses on classifying satellite pixels into 8 predefined land cover classes based off the satellite imagery of Dubai using a supervised learning approach. My scope is  to implement and train these  three semantic segmentation models:
-•	U-Net: this is a new approach as I researched with a compact encoder-decoder network widely used in medical and satellite image segmentation.
+-	U-Net: this is a new approach as I researched with a compact encoder-decoder network widely used in medical and satellite image segmentation.
 
-•	DeepLabV3+: this is my top two most preferred advanced model using atrous spatial pyramid pooling (ASPP) and encoder-decoder refinement.
+-	DeepLabV3+: this is my top two most preferred advanced model using atrous spatial pyramid pooling (ASPP) and encoder-decoder refinement.
 
-•	PSPNet: this is my third choice of triangle-like comparison, which is a powerful model leveraging pyramid pooling for global context aggregation.
+-	PSPNet: this is my third choice of triangle-like comparison, which is a powerful model leveraging pyramid pooling for global context aggregation.
 
 Towards the end of my project, I will benchmark these models on accuracy, class-wise metrics, and performance trade-offs.
 
@@ -51,25 +51,25 @@ I found that semantic segmentation of satellite and UAV (unmanned aerial vehicle
 
 When comparing to standard computer vision tasks, I can observe that aerial imagery prompts several unique challenges that I will classify as follows:
 
-•	High spatial variability: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies, and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
+-	High spatial variability: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies, and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
 
-•	Inter-class similarity: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
+-	Inter-class similarity: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
 
-•	Image artifacts and noise: UAV-captured images can suffer from motion blur, variable lighting conditions, or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
+-	Image artifacts and noise: UAV-captured images can suffer from motion blur, variable lighting conditions, or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
 
-•	Large image sizes: Satellite imagery often comes in high resolution, demanding significant computational resources for training and inference. This can easily exceed the standard and complimentary 15GB storage of one Google Drive so I had to purchase a better Drive plan for storing without affecting other purposes.
+-	Large image sizes: Satellite imagery often comes in high resolution, demanding significant computational resources for training and inference. This can easily exceed the standard and complimentary 15GB storage of one Google Drive so I had to purchase a better Drive plan for storing without affecting other purposes.
 
-•	Class imbalance: In many segmentation datasets that I chose, majority classes (e.g., background, vegetation (including grassland, forestry/tree lines and angriculture) heavily outweigh minority classes (e.g., water edges, cars, pools, human, fire zones), resulting in biased model performance.
+-	Class imbalance: In many segmentation datasets that I chose, majority classes (e.g., background, vegetation (including grassland, forestry/tree lines and angriculture) heavily outweigh minority classes (e.g., water edges, cars, pools, human, fire zones), resulting in biased model performance.
 
 Therefore, to address these challenges, I will use the following approaches:
 
-•	Data augmentation: This techniques offers rotation, scaling, horizontal flips, color jittering, and noise injection are applied to enhance model generalization across environmental conditions.
+-	Data augmentation: This techniques offers rotation, scaling, horizontal flips, color jittering, and noise injection are applied to enhance model generalization across environmental conditions.
 
-•	Indexed masks with original colors: The dataset uses RGB-encoded masks where each color corresponds to a distinct class. No manual color maps are used. My models are trained to learn directly from RGB-based class masks.
+-	Indexed masks with original colors: The dataset uses RGB-encoded masks where each color corresponds to a distinct class. No manual color maps are used. My models are trained to learn directly from RGB-based class masks.
 
-•	Transfer learning: I also employ retrained encoders (e.g., ResNet backbones) to reduce training time and improve convergence with limited labeled data.
+-	Transfer learning: I also employ retrained encoders (e.g., ResNet backbones) to reduce training time and improve convergence with limited labeled data.
 
-•	Multi-metric evaluation: Instead of relying solely on pixel-level accuracy, my evaluation includes precision, recall, F1-score, and class-wise Intersection over Union (IoU) for each model assessment and deployment.
+-	Multi-metric evaluation: Instead of relying solely on pixel-level accuracy, my evaluation includes precision, recall, F1-score, and class-wise Intersection over Union (IoU) for each model assessment and deployment.
 
 My goal of this project is to compare the effectiveness of different deep learning architectures in segmenting semantic classes across different geographic and environmental contexts, producing accurate segmentation masks for visual analytics, geospatial modeling, and decision support.
 
@@ -80,13 +80,14 @@ My semantic segmentation pipeline was built on RGB satellite and UAV images with
 
 #### Data Pipeline & Augmentation
 
-•	Augmented images and their corresponding RGB masks were resized to 256×256 to balance detail preservation and memory efficiency.
+-	Augmented images and their corresponding RGB masks were resized to 256×256 to balance detail preservation and memory efficiency.
 
-•	Augmentation included random rotations, flips, zooms, contrast enhancements, and noise addition.
+-	Augmentation included random rotations, flips, zooms, contrast enhancements, and noise addition.
 
-•	Ground truth masks maintain original RGB values without converting to class indices, ensuring human-interpretable segmentation outputs.
+-	Ground truth masks maintain original RGB values without converting to class indices, ensuring human-interpretable segmentation outputs.
 
 #### Data Understanding
+
 My project utilizes semantic segmentation datasets derived from satellite and UAV imagery, each containing RGB images and corresponding color-encoded segmentation masks. The original datasets include:
 
 •	SSAI (Semantic Segmentation of Aerial Imagery on Dubai - baseline): A structured dataset with well-defined semantic classes and unique RGB values per class.
@@ -98,13 +99,13 @@ My project utilizes semantic segmentation datasets derived from satellite and UA
 While the three datasets cover diverse geographic regions and object types, their class definitions and color encodings were initially inconsistent. For instance, SIM used bright visual colors like pure yellow for agriculture, and MUD had separate labels for “moving car,” “static car,” and “human,” whereas SSAI offered unified labels for high-level object categories.
 To address this inconsistency, I adopted SSAI’s class-color structure as the common reference palette for unified training simplification, better model generalization and consistent assessment. I implemented a color normalization function using KDTree-based nearest-neighbor color matching, allowing masks from SIM and MUD to be recolored into the SSAI palette. This enabled a standardized pipeline for:
 
-•	Preprocessing
+-	Preprocessing
 
-•	Model input preparation
+-	Model input preparation
 
-•	Visual inspection
+-	Visual inspection
 
-•	Evaluation and class-based performance comparison
+-	Evaluation and class-based performance comparison
 
 #### Unified Class Mapping
 
@@ -123,9 +124,9 @@ My recoloring process grouped visually and semantically similar classes across d
 #### 📂 Directory Structure
 My working directory was organized for seamless integration with the TensorFlow Dataset (TFDS) API and batched training:
 
-•	/augmented_images/: Contains augmented and resized RGB input images (256×256 resolution).
+-	/augmented_images/: Contains augmented and resized RGB input images (256×256 resolution).
 
-•	/augmented_masks_indexed/: Contains segmentation masks where each pixel’s RGB color directly maps to a semantic class (based on the unified SSAI palette).
+-	/augmented_masks_indexed/: Contains segmentation masks where each pixel’s RGB color directly maps to a semantic class (based on the unified SSAI palette).
 
 ```bash
 .

@@ -218,7 +218,38 @@ Here are my Pipeline Characteristics as follows:
 
 ---
 
-### Training Pipeline
+### Training Configuration
+
+To prioritize high-quality segmentation results while maintaining computational feasibility, I adopted a fixed but robust training configuration across all three models (U-Net, DeepLabV3+, and PSPNet). While exploring multiple optimizers, batch sizes, or loss functions could potentially improve performance marginally, training each architecture separately on large augmented datasets for over 100 epochs is resource-intensive. Thus, I focused on settings that are widely recognized for producing stable and effective results in semantic segmentation tasks.
+
+#### Training Parameters
+•	**Optimizer**: Adam optimizer with a learning rate of 1e-4 was chosen for its adaptive learning properties and fast convergence. Adam consistently performs well in segmentation tasks without requiring extensive tuning.
+
+•	**Loss Function**: SparseCategoricalCrossentropy(from_logits=True) was selected because the segmentation masks are class-indexed rather than one-hot encoded. This choice simplifies training and integrates well with TensorFlow's segmentation workflows.
+
+•	Metrics:
+
+o	**Accuracy**: While simple, it offers a high-level view of performance.
+
+o	**Intersection over Union (IoU)**: A custom IoU metric was implemented to assess class-wise segmentation quality. This metric provides a more relevant and granular performance evaluation, particularly for imbalanced or spatially complex classes.
+
+•	**Epochs**: Training was conducted for up to 100 epochs per model. In practice, early stopping could be introduced based on validation IoU to shorten training without sacrificing performance, especially for architectures that converge early.
+
+•	**Batch Size**: A batch size of 8 was used. This size represents a trade-off between GPU memory efficiency and gradient stability across all three deep models on high-resolution data.
+
+•	**Framework**: All training and evaluation were performed using TensorFlow 2.x and Keras, which offer high-level API simplicity alongside GPU acceleration and built-in monitoring.
+
+---
+### Evaluation Strategy
+
+My evaluation strategy came from two general aspects:
+
+•	**Quantitative**: Performance was monitored through validation metrics (IoU and accuracy), along with optional classification metrics such as confusion matrices.
+
+•	**Qualitative**: Visual comparisons between predicted segmentation masks and ground truth were carried out to inspect object boundaries, class fidelity, and overall spatial coherence.
+
+By selecting stable and proven training settings, I was able to focus on ensuring fair comparisons across the three architectures and on refining preprocessing, color normalization, and model outputs. While more extensive hyperparameter exploration is academically ideal, the practical constraints of large-scale augmented datasets made this approach the most reasonable within the project timeline.
+
 
 ```python
 # train.py

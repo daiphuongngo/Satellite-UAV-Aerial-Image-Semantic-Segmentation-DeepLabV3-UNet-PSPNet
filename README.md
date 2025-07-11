@@ -51,25 +51,25 @@ I found that semantic segmentation of satellite and UAV (unmanned aerial vehicle
 
 When comparing to standard computer vision tasks, I can observe that aerial imagery prompts several unique challenges that I will classify as follows:
 
--	High spatial variability: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies, and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
+-	**High spatial variability**: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies, and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
 
--	Inter-class similarity: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
+-	**Inter-class similarity**: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
 
--	Image artifacts and noise: UAV-captured images can suffer from motion blur, variable lighting conditions, or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
+-	**Image artifacts and noise**: UAV-captured images can suffer from motion blur, variable lighting conditions, or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
 
--	Large image sizes: Satellite imagery often comes in high resolution, demanding significant computational resources for training and inference. This can easily exceed the standard and complimentary 15GB storage of one Google Drive so I had to purchase a better Drive plan for storing without affecting other purposes.
+-	**Large image sizes**: Satellite imagery often comes in high resolution, demanding significant computational resources for training and inference. This can easily exceed the standard and complimentary 15GB storage of one Google Drive so I had to purchase a better Drive plan for storing without affecting other purposes.
 
--	Class imbalance: In many segmentation datasets that I chose, majority classes (e.g., background, vegetation (including grassland, forestry/tree lines and angriculture) heavily outweigh minority classes (e.g., water edges, cars, pools, human, fire zones), resulting in biased model performance.
+-	**Class imbalance**: In many segmentation datasets that I chose, majority classes (e.g., background, vegetation (including grassland, forestry/tree lines and angriculture) heavily outweigh minority classes (e.g., water edges, cars, pools, human, fire zones), resulting in biased model performance.
 
 Therefore, to address these challenges, I will use the following approaches:
 
--	Data augmentation: This techniques offers rotation, scaling, horizontal flips, color jittering, and noise injection are applied to enhance model generalization across environmental conditions.
+-	**Data augmentation**: This techniques offers rotation, scaling, horizontal flips, color jittering, and noise injection are applied to enhance model generalization across environmental conditions.
 
--	Indexed masks with original colors: The dataset uses RGB-encoded masks where each color corresponds to a distinct class. No manual color maps are used. My models are trained to learn directly from RGB-based class masks.
+-	**Indexed masks with original colors**: The dataset uses RGB-encoded masks where each color corresponds to a distinct class. No manual color maps are used. My models are trained to learn directly from RGB-based class masks.
 
--	Transfer learning: I also employ retrained encoders (e.g., ResNet backbones) to reduce training time and improve convergence with limited labeled data.
+-	**Transfer learning**: I also employ retrained encoders (e.g., ResNet backbones) to reduce training time and improve convergence with limited labeled data.
 
--	Multi-metric evaluation: Instead of relying solely on pixel-level accuracy, my evaluation includes precision, recall, F1-score, and class-wise Intersection over Union (IoU) for each model assessment and deployment.
+-	**Multi-metric evaluation**: Instead of relying solely on pixel-level accuracy, my evaluation includes precision, recall, F1-score, and class-wise Intersection over Union (IoU) for each model assessment and deployment.
 
 My goal of this project is to compare the effectiveness of different deep learning architectures in segmenting semantic classes across different geographic and environmental contexts, producing accurate segmentation masks for visual analytics, geospatial modeling, and decision support.
 
@@ -90,13 +90,23 @@ My semantic segmentation pipeline was built on RGB satellite and UAV images with
 
 My project utilizes semantic segmentation datasets derived from satellite and UAV imagery, each containing RGB images and corresponding color-encoded segmentation masks. The original datasets include:
 
-•	SSAI (Semantic Segmentation of Aerial Imagery on Dubai - baseline): A structured dataset with well-defined semantic classes and unique RGB values per class.
+•	**SSAI** (Semantic Segmentation of Aerial Imagery on Dubai - baseline): A structured dataset with well-defined semantic classes and unique RGB values per class.
 
-•	SIM (Land Cover Classification: Bhuvan Satellite Data): A rich set of labeled satellite imagery with differing label colors and class definitions.
+•	**SIM** (Land Cover Classification: Bhuvan Satellite Data): A rich set of labeled satellite imagery with differing label colors and class definitions.
 
-•	MUD (Modified UAVid Dataset): High-resolution UAV-captured scenes with detailed object annotations.
+•	**MUD** (Modified UAVid Dataset): High-resolution UAV-captured scenes with detailed object annotations.
 
 While the three datasets cover diverse geographic regions and object types, their class definitions and color encodings were initially inconsistent. For instance, SIM used bright visual colors like pure yellow for agriculture, and MUD had separate labels for “moving car,” “static car,” and “human,” whereas SSAI offered unified labels for high-level object categories.
+
+#### 🗂️ Datasets
+
+| Dataset           | Classes                    | Source                   |
+| ----------------- | -------------------------- | ------------------------ |
+| Semantic Tiles (main)    | Custom semantic tiles      | Dubai aerial data      |
+| UAVID  (3rd supporting)             | Building, Road, Tree, etc  | UAV urban scenes         |
+| Bhuvan Land Cover (2nd supporting) | Land, Water, Urban, Forest | Indian satellite imagery |
+
+
 To address this inconsistency, I adopted SSAI’s class-color structure as the common reference palette for unified training simplification, better model generalization and consistent assessment. I implemented a color normalization function using KDTree-based nearest-neighbor color matching, allowing masks from SIM and MUD to be recolored into the SSAI palette. This enabled a standardized pipeline for:
 
 -	Preprocessing
@@ -155,11 +165,11 @@ project_root_on_Drive/
 
 The preprocessing pipeline involved the following steps:
 
-•	Mask recoloring: All SIM and MUD masks were recolored using SSAI-compatible colors via norm_colors_quantized() and KDTree.
+•	**Mask recoloring**: All SIM and MUD masks were recolored using SSAI-compatible colors via norm_colors_quantized() and KDTree.
 
-•	Mask resizing: Masks were resized with nearest-neighbor interpolation to preserve discrete class boundaries.
+•	**Mask resizing**: Masks were resized with nearest-neighbor interpolation to preserve discrete class boundaries.
 
-•	Image resizing and padding: All RGB images were padded and resized to 256×256 using resize_with_pad for training uniformity.
+•	**Image resizing and padding**: All RGB images were padded and resized to 256×256 using resize_with_pad for training uniformity.
 
 ---
 #### Final Class Set for Training
@@ -186,27 +196,27 @@ To improve the generalization of all three semantic segmentation models, U-Net, 
 
 I came up with my Augmentation Strategy. My augmentation pipeline included the following randomized transformations:
 
-•	Horizontal Flipping: This technique introduced symmetry variability.
+•	**Horizontal Flipping**: This technique introduced symmetry variability.
 
-•	Rotation (±20°): A slight rotation simulated different object orientations. This is true as object location and angles of view can be varied due to their own position on the ground and flying paths of satellite and UAV.
+•	**Rotation (±20°)**: A slight rotation simulated different object orientations. This is true as object location and angles of view can be varied due to their own position on the ground and flying paths of satellite and UAV.
 
-•	Contrast Enhancement: I also applied contrast jittering with random intensity factors (0.6–1.4) which is considered slight differences for image diversification.
+•	**Contrast Enhancement**: I also applied contrast jittering with random intensity factors (0.6–1.4) which is considered slight differences for image diversification.
 
-•	Autocontrast and Histogram Equalization: I also enhanced image contrast automatically or balanced histogram intensities.
+•	**Autocontrast and Histogram Equalization**: I also enhanced image contrast automatically or balanced histogram intensities.
 
-•	Brightness Adjustment: This modification helped me to adust lighting variability with random brightness scaling (0.7–1.3). This is true in reality as satellite and UAV may capture images in different lighting conditions.
+•	**Brightness Adjustment**: This modification helped me to adust lighting variability with random brightness scaling (0.7–1.3). This is true in reality as satellite and UAV may capture images in different lighting conditions.
 
 With these augmentations, I could apply probabilistically per image-mask pair, ensuring diverse and unique outputs from each original sample.
 
 Here are my Pipeline Characteristics as follows:
 
-•	Target Count: I aimed for 10,000 augmented pairs across 8 different tile folders.
+•	**Target Count**: I aimed for 10,000 augmented pairs across 8 different tile folders.
 
-•	Augmentation Coverage: This coverage ensured that each valid image–mask pair was augmented uniformly to meet the total target.
+•	**Augmentation Coverage**: This coverage ensured that each valid image–mask pair was augmented uniformly to meet the total target.
 
-•	Input Resolution: I also resized images and masks to 512×512 pixels using BILINEAR for images and NEAREST for masks.
+•	**Input Resolution**: I also resized images and masks to 512×512 pixels using BILINEAR for images and NEAREST for masks.
 
-•	Frameworks: I completed augmentation by using Python’s Pillow (PIL) library.
+•	**Frameworks**: I completed augmentation by using Python’s Pillow (PIL) library.
 
 ---
 
@@ -266,19 +276,6 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 model.fit(train_ds, epochs=50, validation_data=val_ds)
 model.save("models/unet_uavid.h5")
 ```
-
----
-
-
----
-
-### 🗂️ Datasets
-
-| Dataset           | Classes                    | Source                   |
-| ----------------- | -------------------------- | ------------------------ |
-| Semantic Tiles (main)    | Custom semantic tiles      | Dubai aerial data      |
-| UAVID  (3rd supporting)             | Building, Road, Tree, etc  | UAV urban scenes         |
-| Bhuvan Land Cover (2nd supporting) | Land, Water, Urban, Forest | Indian satellite imagery |
 
 ---
 

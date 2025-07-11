@@ -150,14 +150,71 @@ project_root_on_Drive/
     ├── test_mask/                 ← Original SSAI-style masks (test)
     └── test_mask_new/             ← Recolorized SSAI masks (test)
 ```
+---
+### Data Preprocessing 
+
+The preprocessing pipeline involved the following steps:
+
+•	Mask recoloring: All SIM and MUD masks were recolored using SSAI-compatible colors via norm_colors_quantized() and KDTree.
+
+•	Mask resizing: Masks were resized with nearest-neighbor interpolation to preserve discrete class boundaries.
+
+•	Image resizing and padding: All RGB images were padded and resized to 256×256 using resize_with_pad for training uniformity.
+
+---
+#### Final Class Set for Training
+
+The final set of classes used for segmentation (all normalized to SSAI definitions):
+
+|Class Index	|Class Name	|RGB Encoding|
+|-|-|-|
+|0	|Unlabeled	|(0, 0, 0)|
+|1	|Building	|(60, 16, 152)|
+|2	|Land	|(132, 41, 246)|
+|3	|Road	|(110, 193, 228)|
+|4	|Vegetation	|(254, 221, 58)|
+|5	|Water	|(226, 169, 41)|
+|6	|Object	|(232, 98, 60)|
+
+This unified structure enabled cross-dataset training, robust model generalization, and consistent performance evaluation across diverse environments, such as urban landscapes, forest regions, and disaster-prone areas.
+Here’s a rewritten version of the Data Augmentation section tailored for your documentation, along with an explanation of the differences between the three code blocks:
+
+---
+### Data Augmentation
+
+To improve the generalization of all three semantic segmentation models, U-Net, DeepLabV3+, and PSPNet, I can not rely only the original datasets, I applied a set of robust image augmentations to increase dataset diversity and simulate real-world variability in satellite and UAV imagery. These augmentations were consistently applied to both images and their corresponding masks, ensuring spatial alignment was preserved.
+
+I came up with my Augmentation Strategy. My augmentation pipeline included the following randomized transformations:
+
+•	Horizontal Flipping: This technique introduced symmetry variability.
+
+•	Rotation (±20°): A slight rotation simulated different object orientations. This is true as object location and angles of view can be varied due to their own position on the ground and flying paths of satellite and UAV.
+
+•	Contrast Enhancement: I also applied contrast jittering with random intensity factors (0.6–1.4) which is considered slight differences for image diversification.
+
+•	Autocontrast and Histogram Equalization: I also enhanced image contrast automatically or balanced histogram intensities.
+
+•	Brightness Adjustment: This modification helped me to adust lighting variability with random brightness scaling (0.7–1.3). This is true in reality as satellite and UAV may capture images in different lighting conditions.
+
+With these augmentations, I could apply probabilistically per image-mask pair, ensuring diverse and unique outputs from each original sample.
+
+Here are my Pipeline Characteristics as follows:
+
+•	Target Count: I aimed for 10,000 augmented pairs across 8 different tile folders.
+
+•	Augmentation Coverage: This coverage ensured that each valid image–mask pair was augmented uniformly to meet the total target.
+
+•	Input Resolution: I also resized images and masks to 512×512 pixels using BILINEAR for images and NEAREST for masks.
+
+•	Frameworks: I completed augmentation by using Python’s Pillow (PIL) library.
 
 ---
 
 ### Model Architectures
 
-* **UNet**: Custom lightweight encoder-decoder architecture for pixel-wise segmentation.
-* **DeepLabV3+** (assumed to be best model): Uses atrous spatial pyramid pooling (ASPP) and encoder-decoder modules for better boundary capture.
-* **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module.
+* **UNet**: This is a symmetric encoder-decoder architecture with skip connections. U-Net is effective in capturing fine-grained information (especially for spatial information) and performs well on smaller datasets with balanced augmentation.
+* **DeepLabV3+** (assumed to be best model): This is a state-of-the-art architecture using atrous (dilated) convolutions and encoder-decoder structure with a deep backbone (e.g., Xception or MobileNet) and atrous spatial pyramid pooling (ASPP). It helps me to excel in capturing multi-scale context and improving boundary accuracy.
+* **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module. This is another of my selective models which utilizes pyramid pooling modules to extract context at multiple scales. PSPNet is well-suited for complex scenes with varying object sizes, such as captured images with multiple known and yet-unknown objects by satellite and UAV, and performs strongly on large-scale, high-resolution datasets.
 
 ---
 

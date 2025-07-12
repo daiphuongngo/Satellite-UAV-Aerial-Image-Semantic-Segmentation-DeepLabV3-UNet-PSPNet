@@ -136,7 +136,7 @@ My working directory was organized for seamless integration with the TensorFlow 
 
 -	/augmented_images/: Contains augmented and resized RGB input images (256×256 resolution).
 
--	/augmented_masks_indexed/: Contains segmentation masks where each pixel’s RGB color directly maps to a semantic class (based on the unified SSAI palette).
+-	/augmented_masks_indexed/: Contains segmentation masks where each pixel’s RGB color directly maps to a semantic class (based off the unified SSAI palette).
 
 ```bash
 .

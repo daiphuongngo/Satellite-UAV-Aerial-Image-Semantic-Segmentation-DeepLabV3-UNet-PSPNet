@@ -36,11 +36,11 @@ Key results:
 ### Project Overview
 
 Semantic segmentation is a critical task in remote sensing and environmental monitoring. My project focuses on classifying satellite pixels into 8 predefined land cover classes based off the satellite imagery of Dubai using a supervised learning approach. My scope is  to implement and train these  three semantic segmentation models:
--	U-Net: this is a new approach as I researched with a compact encoder-decoder network widely used in medical and satellite image segmentation.
+-	**U-Net**: this is a new approach as I researched with a compact encoder-decoder network widely used in medical and satellite image segmentation.
 
--	DeepLabV3+: this is my top two most preferred advanced model using atrous spatial pyramid pooling (ASPP) and encoder-decoder refinement.
+-	**DeepLabV3+**: this is my top two most preferred advanced model using atrous spatial pyramid pooling (ASPP) and encoder-decoder refinement.
 
--	PSPNet: this is my third choice of triangle-like comparison, which is a powerful model leveraging pyramid pooling for global context aggregation.
+-	**PSPNet**: this is my third choice of triangle-like comparison, which is a powerful model leveraging pyramid pooling for global context aggregation.
 
 Towards the end of my project, I will benchmark these models on accuracy, class-wise metrics, and performance trade-offs.
 

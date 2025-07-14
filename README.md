@@ -187,7 +187,6 @@ The final set of classes used for segmentation (all normalized to SSAI definitio
 |6	|Object	|(232, 98, 60)|
 
 This unified structure enabled cross-dataset training, robust model generalization, and consistent performance evaluation across diverse environments, such as urban landscapes, forest regions, and disaster-prone areas.
-Here’s a rewritten version of the Data Augmentation section tailored for your documentation, along with an explanation of the differences between the three code blocks:
 
 ---
 ### Data Augmentation
@@ -378,7 +377,7 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 | **DeepLabV3+** | Best global structure preservation. Sharp boundaries and excellent class separation.                       |
 | **PSPNet**     | Blurry or blocky predictions. Misses fine details. Good for coarse segmentation, less for fine structures. |
 
-> 📸 Example comparison shown in your predictions: DeepLabV3+ captured roads and roundabouts best, followed by U-Net. PSPNet was visibly noisier and more blocky in those regions.
+> 📸 Example comparison shown in my predictions: DeepLabV3+ captured roads and roundabouts best, followed by U-Net. PSPNet was visibly noisier and more blocky in those regions.
 
 ---
 
@@ -430,6 +429,63 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 - **U-Net** has the smallest number of parameters, ideal for faster iteration or limited hardware.
 - **DeepLabV3+** strikes a strong balance between accuracy and efficiency.
 - **PSPNet** is more complex, requiring more VRAM but still achieves competitive results.
+
+## Ground Truth vs Prediction Quality Analysis for 6 Semantic Segmentation Models
+---
+
+### **1. UNet ver 5**
+
+* **Observation:** Prediction maps closely replicate the ground truth. Small structures, roads, and boundaries are well preserved.
+* **Strengths:** Sharp spatial boundaries, minimal noise, excellent balance between detail and structure.
+* **Limitations:** Very few; slight artifacts in dense regions, but overall highly accurate.
+* **Verdict:** Best performer visually, showing exceptional spatial fidelity for its compact size.
+
+---
+
+### **2. UNet ver 6**
+
+* **Observation:** Slightly less defined than UNet v5 but still delivers good spatial structure and class separation.
+* **Strengths:** Regularization improves generalization slightly at the cost of sharpness.
+* **Limitations:** Slightly blurrier class edges and lower fine detail recovery than UNet v5.
+* **Verdict:** Strong second-place model, especially for regularized performance in real-world scenarios.
+
+---
+
+### **3. DeepLabV3+ ver 4**
+
+* **Observation:** Highly detailed and sharp segmentation. Boundaries and small classes are well preserved.
+* **Strengths:** Captures detailed structures and edge continuity.
+* **Limitations:** Signs of slight overfitting—minor inconsistencies in less prominent areas.
+* **Verdict:** Strong visual performance, particularly good at segmenting complex shapes.
+
+---
+
+### **4. DeepLabV3+ ver 5**
+
+* **Observation:** Very clean and generalized segmentation, though slightly smoother and less sharp than v4.
+* **Strengths:** Excellent generalization; regularization avoids overfitting.
+* **Limitations:** Slight drop in edge definition and minor structural blurring in tight areas.
+* **Verdict:** A close follow-up to v4; better generalization but slightly less crisp visually.
+
+---
+
+### **5. PSPNet ver 2**
+
+* **Observation:** Moderate improvement over PSPNet v1. Still lacks fine structure detection and boundary clarity.
+* **Strengths:** Some regularization effect helps smooth predictions.
+* **Limitations:** Large parameter size doesn’t translate to visual clarity; still coarse and blocky.
+* **Verdict:** Not ideal for fine-grained segmentation tasks despite being regularized.
+
+---
+
+### **6. PSPNet ver 1**
+
+* **Observation:** Coarse segmentation with high spatial noise. Many regions do not align with ground truth.
+* **Strengths:** Can detect some large regions correctly.
+* **Limitations:** Lacks precision and fine structure, poorly segmented edges.
+* **Verdict:** Worst visual performance; suffers from architectural limitations.
+
+
 
 
 

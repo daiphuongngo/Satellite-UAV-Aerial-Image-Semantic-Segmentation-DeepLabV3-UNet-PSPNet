@@ -433,21 +433,25 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 ## Ground Truth vs Prediction Quality Analysis for 6 Semantic Segmentation Models
 ---
 
-### **1. UNet ver 5**
+### **Rank #1. UNet ver 5**
 
 * **Observation:** Prediction maps closely replicate the ground truth. Small structures, roads, and boundaries are well preserved.
 * **Strengths:** Sharp spatial boundaries, minimal noise, excellent balance between detail and structure.
 * **Limitations:** Very few; slight artifacts in dense regions, but overall highly accurate.
 * **Verdict:** Best performer visually, showing exceptional spatial fidelity for its compact size.
+  
+<img width="1174" height="407" alt="UNET ver 5 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/7f4b4dbc-bb8e-4f37-81e2-0bd992da7e77" />
 
 ---
 
-### **2. UNet ver 6**
+### **Rank #2. UNet ver 6**
 
 * **Observation:** Slightly less defined than UNet v5 but still delivers good spatial structure and class separation.
 * **Strengths:** Regularization improves generalization slightly at the cost of sharpness.
 * **Limitations:** Slightly blurrier class edges and lower fine detail recovery than UNet v5.
 * **Verdict:** Strong second-place model, especially for regularized performance in real-world scenarios.
+
+<img width="1174" height="407" alt="UNET ver 6 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/3b511991-2432-4d7c-a762-b9af32ef43db" />
 
 ---
 
@@ -458,6 +462,8 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 * **Limitations:** Signs of slight overfitting—minor inconsistencies in less prominent areas.
 * **Verdict:** Strong visual performance, particularly good at segmenting complex shapes.
 
+<img width="1174" height="407" alt="DeepLabV3+ ver 4 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/00a00fd6-205d-452e-864f-89a4b818048f" />
+
 ---
 
 ### **4. DeepLabV3+ ver 5**
@@ -466,6 +472,8 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 * **Strengths:** Excellent generalization; regularization avoids overfitting.
 * **Limitations:** Slight drop in edge definition and minor structural blurring in tight areas.
 * **Verdict:** A close follow-up to v4; better generalization but slightly less crisp visually.
+
+<img width="1174" height="407" alt="DeepLabV3+ ver 5 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/f0930fb7-2bc2-40cb-b0bb-d14c338faee7" />
 
 ---
 
@@ -476,6 +484,8 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 * **Limitations:** Large parameter size doesn’t translate to visual clarity; still coarse and blocky.
 * **Verdict:** Not ideal for fine-grained segmentation tasks despite being regularized.
 
+<img width="1174" height="407" alt="PSPNET ver 2 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/84e37427-3a23-4c88-bc06-e7293814aa56" />
+
 ---
 
 ### **6. PSPNet ver 1**
@@ -485,6 +495,7 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 * **Limitations:** Lacks precision and fine structure, poorly segmented edges.
 * **Verdict:** Worst visual performance; suffers from architectural limitations.
 
+<img width="1174" height="407" alt="PSPNET ver 1 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/7eb16ef2-78dd-48db-80a3-46028463d21c" />
 
 
 

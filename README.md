@@ -91,7 +91,7 @@ My semantic segmentation pipeline was built on RGB satellite and UAV images with
 
 -	Augmented images and their corresponding RGB masks were resized to 256×256 to balance detail preservation and memory efficiency.
 
--	Augmentation included random rotations, flips, zooms, contrast enhancements, and noise addition.
+-	Augmentation included random rotations, flips, zooms, contrast enhancements and noise addition.
 
 -	Ground truth masks maintain original RGB values without converting to class indices, ensuring human-interpretable segmentation outputs.
 

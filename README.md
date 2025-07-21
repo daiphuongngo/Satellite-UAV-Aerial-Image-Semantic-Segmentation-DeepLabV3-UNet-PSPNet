@@ -72,7 +72,7 @@ When comparing to standard computer vision tasks, I can observe that aerial imag
 
 Therefore, to address these challenges, I will use the following approaches:
 
--	**Data augmentation**: This techniques offers rotation, scaling, horizontal flips, color jittering, and noise injection are applied to enhance model generalization across environmental conditions.
+-	**Data augmentation**: This techniques offers rotation, scaling, horizontal flips, color jittering and noise injection are applied to enhance model generalization across environmental conditions.
 
 -	**Indexed masks with original colors**: The dataset uses RGB-encoded masks where each color corresponds to a distinct class. No manual color maps are used. My models are trained to learn directly from RGB-based class masks.
 

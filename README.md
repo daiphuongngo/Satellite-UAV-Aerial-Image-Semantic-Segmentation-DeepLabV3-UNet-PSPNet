@@ -480,7 +480,7 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 * **Observation:** Very clean and generalized segmentation, though slightly smoother and less sharp than v4.
 * **Strengths:** Excellent generalization; regularization avoids overfitting.
 * **Limitations:** Slight drop in edge definition and minor structural blurring in tight areas.
-* **Verdict:** A close follow-up to v4; better generalization but slightly less crisp visually.
+* **Verdict:** A close follow-up to v4, better generalization but slightly less crisp visually.
 
 <img width="1174" height="407" alt="DeepLabV3+ ver 5 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/f0930fb7-2bc2-40cb-b0bb-d14c338faee7" />
 

@@ -60,7 +60,7 @@ I found that semantic segmentation of satellite and UAV (unmanned aerial vehicle
 
 When comparing to standard computer vision tasks, I can observe that aerial imagery prompts several unique challenges that I will classify as follows:
 
--	**High spatial variability**: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies, and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
+-	**High spatial variability**: Based off the ground objects on my selected data sources , such as buildings, roads, water bodies and vegetation vary widely in scale, shape, and texture depending on resolution, region, and angles of captured images.
 
 -	**Inter-class similarity**: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
 

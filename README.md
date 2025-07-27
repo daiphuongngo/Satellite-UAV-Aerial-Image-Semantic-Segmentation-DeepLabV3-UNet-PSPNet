@@ -232,7 +232,7 @@ Here are my Pipeline Characteristics as follows:
 
 * **UNet**: This is a symmetric encoder-decoder architecture with skip connections. U-Net is effective in capturing fine-grained information (especially for spatial information) and performs well on smaller datasets with balanced augmentation.
 * **DeepLabV3+** (assumed to be best model): This is a state-of-the-art architecture using atrous (dilated) convolutions and encoder-decoder structure with a deep backbone (e.g., Xception or MobileNet) and atrous spatial pyramid pooling (ASPP). It helps me to excel in capturing multi-scale context and improving boundary accuracy.
-* **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module. This is another of my selective models which utilizes pyramid pooling modules to extract context at multiple scales. PSPNet is well-suited for complex scenes with varying object sizes, such as captured images with multiple known and yet-unknown objects by satellite and UAV, and performs strongly on large-scale, high-resolution datasets.
+* **PSPNet**: Pyramid Scene Parsing Network that handles global context using pyramid pooling module. This is another of my selective models which utilizes pyramid pooling modules to extract context at multiple scales. PSPNet is well-suited for complex scenes with varying object sizes, for example, captured images with multiple known and yet-unknown objects by satellite and UAV, and performs strongly on large-scale, high-resolution datasets.
 
 ---
 

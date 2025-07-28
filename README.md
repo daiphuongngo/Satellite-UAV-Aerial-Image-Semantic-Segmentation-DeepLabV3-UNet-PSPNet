@@ -128,7 +128,7 @@ To address this inconsistency, I adopted SSAI’s class-color structure as the c
 
 #### Unified Class Mapping
 
-My recoloring process grouped visually and semantically similar classes across datasets
+My recoloring process grouped visually and semantically similar classes across datasets:
 
 
 |Original Label	|Unified SSAI Class	|SSAI RGB Color|

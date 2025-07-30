@@ -238,7 +238,7 @@ Here are my Pipeline Characteristics as follows:
 
 ### Training Configuration
 
-To prioritize high-quality segmentation results while maintaining computational feasibility, I adopted a fixed but robust training configuration across all three models (U-Net, DeepLabV3+, and PSPNet). While exploring multiple optimizers, batch sizes, or loss functions could potentially improve performance marginally, training each architecture separately on large augmented datasets for over 100 epochs is resource-intensive. Thus, I focused on settings that are widely recognized for producing stable and effective results in semantic segmentation tasks.
+To prioritize high-quality segmentation results while maintaining computational feasibility, I adopted a fixed but robust training configuration across all three models (U-Net, DeepLabV3+, and PSPNet). While exploring multiple optimizers, batch sizes or loss functions could potentially improve performance marginally, training each architecture separately on large augmented datasets for over 100 epochs is resource-intensive. Thus, I focused on settings that are widely recognized for producing stable and effective results in semantic segmentation tasks.
 
 #### Training Parameters
 •	**Optimizer**: Adam optimizer with a learning rate of 1e-4 was chosen for its adaptive learning properties and fast convergence. Adam consistently performs well in segmentation tasks without requiring extensive tuning.

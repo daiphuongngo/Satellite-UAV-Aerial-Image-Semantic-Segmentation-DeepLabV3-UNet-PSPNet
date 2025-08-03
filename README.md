@@ -662,11 +662,11 @@ ________________________________________
 
 ### Image Dataset
 
-18.	UAVid Dataset – Urban Semantic Segmentation
+19.	UAVid Dataset – Urban Semantic Segmentation
 
 UAVid Dataset. (2018). A semantic segmentation dataset for urban scene understanding using UAV imagery. Retrieved from https://uavid.nl/
 
-19.	Semantic Segmentation Dataset – Humans in the Loop
+20.	Semantic Segmentation Dataset – Humans in the Loop
     
 Humans in the Loop. (n.d.). Semantic Segmentation Dataset for Buildings, Roads, and Trees. Retrieved from https://humansintheloop.org/resources/datasets/semantic-segmentation-dataset-2/
 

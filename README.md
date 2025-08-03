@@ -533,11 +533,146 @@ Limitations include class imbalance and the use of only 2D imagery. Future direc
 
 --- 
 
-### Conclusion
+## Conclusion
 
 My project demonstrates how deep learning can be leveraged to perform pixel-accurate classification on satellite and UAV imagery. U-Net and DeepLabV3+ models are well-suited for this task, each excelling under different constraints. This experience deepened my understanding of real-world applications of deep learning.
 
 ---
 
-### References
+## References
+
+### 1. Core Methodologies and Architectures
+
+1.	U-Net
+   
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. In MICCAI, LNCS vol. 9351, pp. 234–241. Springer.
+
+https://arxiv.org/abs/1505.04597
+
+3.	DeepLabV3+
+   
+Chen, L.-C., Zhu, Y., Papandreou, G., Schroff, F., & Adam, H. (2018). Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation. ECCV, pp. 801–818.
+
+https://arxiv.org/abs/1802.02611
+
+4.	PSPNet
+   
+Zhao, H., Shi, J., Qi, X., Wang, X., & Jia, J. (2017). Pyramid Scene Parsing Network. CVPR, pp. 2881–2890.
+
+https://arxiv.org/abs/1612.01105
+________________________________________
+
+### 2. Keras and Practical Implementation Examples
+
+4.	Keras Team. (2024).
+   
+DeepLabV3+ Semantic Segmentation
+
+Image segmentation with DeepLabV3+.
+
+https://keras.io/examples/vision/deeplabv3_plus/
+
+6.	Keras Team. (2023).
+   
+Fully Convolutional Network (FCN)
+
+Image segmentation using a fully convolutional network.
+
+https://keras.io/examples/vision/fully_convolutional_network/
+
+7.	Keras Team. (2023).
+   
+U-Net on Oxford Pets
+
+Image segmentation using U-Net.
+
+https://keras.io/examples/vision/oxford_pets_image_segmentation/
+
+8.	Keras Team. (2024).
+   
+Segment Anything with SAM
+
+Integrating SAM for image segmentation.
+
+https://keras.io/examples/vision/sam/
+________________________________________
+
+### 3. Remote Sensing and Semantic Segmentation (Satellite/UAV)
+   
+8.	Šćepanović, S., Antropov, O., Laurila, P., Rauste, Y., Ignatenko, V., & Praks, J. (2019).
+   
+Wide-Area Land Cover Mapping with Sentinel-1 Imagery using Deep Learning Semantic Segmentation Models. arXiv.
+
+https://arxiv.org/abs/1912.05067
+
+10.	Ulmas, P. & Liiv, I. (2020).
+    
+Segmentation of Satellite Imagery using U-Net Models for Land Cover Classification. arXiv.
+
+https://arxiv.org/abs/2003.02899
+
+11.	Zhang, G., Nur, S., Wang, C., & Quan, L. (2023).
+An Improved Semantic Segmentation Algorithm for High-Resolution Remote Sensing Images Based on DeepLabV3+. Scientific Reports.
+https://www.nature.com/articles/s41598-024-84795-1
+
+### 4. Deep Learning & Computer Vision Textbooks
+   
+11.	Goodfellow, I., Bengio, Y., & Courville, A. (2016).
+
+Deep Learning. MIT Press.
+
+http://www.deeplearningbook.org
+
+13.	Chollet, F. (2021).
+    
+Deep Learning with Python (2nd ed.). Manning Publications.
+
+14.	Géron, A. (2022).
+    
+Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.). O'Reilly Media.
+
+16.	Szeliski, R. (2022).
+    
+Computer Vision: Algorithms and Applications (2nd ed.). Springer.
+
+https://szeliski.org/Book/
+________________________________________
+### References for Model Architecture Images
+
+15.	PSPNet Diagram
+    
+Zhao, H., Shi, J., Qi, X., Wang, X., & Jia, J. (2017). Pyramid Scene Parsing Network (PSPNet). GitHub Repository: https://github.com/hszhao/semseg.
+
+Figure source: pspnet.png retrieved from
+
+https://github.com/hszhao/semseg/blob/master/figure/pspnet.png
+
+17.	DeepLabV3+ Keras Implementation
+    
+Keras Team. (2022). Image Segmentation with DeepLabV3+. Keras Examples.
+
+Retrieved from: https://keras.io/examples/vision/deeplabv3_plus/
+
+18.	U-Net Architecture Diagram
+    
+Milesial. (2020). PyTorch U-Net for Image Segmentation. GitHub Repository.
+
+Retrieved from: https://github.com/milesial/Pytorch-UNet
+________________________________________
+
+### Image Dataset
+
+18.	UAVid Dataset – Urban Semantic Segmentation
+
+UAVid Dataset. (2018). A semantic segmentation dataset for urban scene understanding using UAV imagery. Retrieved from https://uavid.nl/
+
+19.	Semantic Segmentation Dataset – Humans in the Loop
+20.	
+Humans in the Loop. (n.d.). Semantic Segmentation Dataset for Buildings, Roads, and Trees. Retrieved from https://humansintheloop.org/resources/datasets/semantic-segmentation-dataset-2/
+
+21.	Bhuvan Thematic Services – NRSC/ISRO
+22.	
+National Remote Sensing Centre (NRSC). (n.d.). Bhuvan Thematic Data: Land Use/Land Cover (LULC) and Urban Mapping. Indian Space Research Organisation (ISRO). Retrieved from https://bhuvan-app1.nrsc.gov.in/thematic/thematic/index.php
+
+
 

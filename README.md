@@ -507,5 +507,37 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 <img width="1174" height="407" alt="PSPNET ver 1 - Ground Truth vs Prediction" src="https://github.com/user-attachments/assets/7eb16ef2-78dd-48db-80a3-46028463d21c" />
 
 
+---
 
+## Summary Ranking (Best to Worst)
+|-|-|-|-|
+| Rank	| Model	| Visual Accuracy	| Notes | 
+| 1	| UNET ver 5	| 🟢 | Excellent	| Best balance of detail and clarity | 
+| 2	| UNET ver 6	| 🟢 | Very Good	| Slightly softer than ver 5 | 
+| 3	| DeepLabV3+ v4	| 🟢 | Good	| Strong semantic understanding | 
+| 4	| DeepLabV3+ v5	| 🟡 | Moderate	| Slight degradation due to regularization | 
+| 5	| PSPNET ver 2	| 🔴 | Weak	| Over-smoothing and coarse structure | 
+| 6	| PSPNET ver 1	| 🔴 | Poor	| Blurry, fails to capture key patterns | 
+
+---
+
+### Lessons Learned
+
+This project taught me the importance of model architecture choice, how regularization affects learning stability, and the trade-offs between performance and computational resources. Data augmentation proved critical for robust performance. Visual inspection is as important as metrics in segmentation tasks.
+
+---
+
+### Limitations and Future Work
+
+Limitations include class imbalance and the use of only 2D imagery. Future directions include using multi-spectral data, class-weighted loss functions, and deploying models with TensorRT or ONNX for real-time inference. I also plan to experiment with hybrid architectures like U-Net++ or SegFormer."
+
+--- 
+
+### Conclusion
+
+My project demonstrates how deep learning can be leveraged to perform pixel-accurate classification on satellite and UAV imagery. U-Net and DeepLabV3+ models are well-suited for this task, each excelling under different constraints. This experience deepened my understanding of real-world applications of deep learning.
+
+---
+
+### References
 

@@ -17,7 +17,7 @@ Senior Research Analyst, Faculty of Arts and Sciences Office for Faculty Affairs
 
 ## Timeline: June 23 - August 6, 2025
 
-## 🌍 Satellite & UAV Aerial Image Semantic Segmentation
+## 🌍🛰🛸 Satellite & UAV Aerial Image Semantic Segmentation
 
 My deep learning project for multi-class semantic segmentation on aerial imagery using **PSPNet**, **UNet** and **DeepLabV3+**, applied to three datasets: UAVID, modified Bhuvan Land Cover and semantic tile datasets.
 

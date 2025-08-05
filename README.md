@@ -523,7 +523,7 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 
 ### Lessons Learned
 
-This project taught me the importance of model architecture choice, how regularization affects learning stability, and the trade-offs between performance and computational resources. Data augmentation proved critical for robust performance. Visual inspection is as important as metrics in segmentation tasks.
+My project taught me the importance of model architecture choice, how regularization affects learning stability, and the trade-offs between performance and computational resources. Data augmentation proved critical for robust performance. Visual inspection is as important as metrics in segmentation tasks.
 
 ---
 

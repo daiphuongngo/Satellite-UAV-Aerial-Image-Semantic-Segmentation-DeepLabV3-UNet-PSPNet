@@ -510,8 +510,9 @@ Here's my **comparison summary of U-Net, DeepLabV3+ and PSPNet** based on my rep
 ---
 
 ## Summary Ranking (Best to Worst)
-|-|-|-|-|
+
 | Rank	| Model	| Visual Accuracy	| Notes | 
+|-|-|-|-|
 | 1	| UNET ver 5	| 🟢 | Excellent	| Best balance of detail and clarity | 
 | 2	| UNET ver 6	| 🟢 | Very Good	| Slightly softer than ver 5 | 
 | 3	| DeepLabV3+ v4	| 🟢 | Good	| Strong semantic understanding | 

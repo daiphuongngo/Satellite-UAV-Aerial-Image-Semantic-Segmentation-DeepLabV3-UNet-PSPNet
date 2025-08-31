@@ -53,7 +53,7 @@ Semantic segmentation is a critical task in remote sensing and environmental mon
 
 -	**PSPNet**: this is my third choice of triangle-like comparison, which is a powerful model leveraging pyramid pooling for global context aggregation.
 
-Towards the end of my project, I will benchmark these models on accuracy, class-wise metrics and performance trade-offs.
+Towards the end of my project, I will benchmark these models on accuracy, class-wise metrics, and performance trade-offs.
 
 --- 
 ### Problem Statement

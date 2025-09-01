@@ -58,7 +58,7 @@ Towards the end of my project, I will benchmark these models on accuracy, class-
 --- 
 ### Problem Statement
 
-I found that semantic segmentation of satellite and UAV (unmanned aerial vehicle) images is crucial for understanding and classifying land use and land cover (LULC), identifying environmental patterns, detecting urban growth (e.g. traffic control, building construction, water source maintenance) and managing disaster response (e.g., flood mapping, wildfire detection, object detection). My project aims to build a robust deep learning pipeline using multiple architectures, such asU-Net, DeepLabV3+, and PSPNet, for segmenting complex and diverse classes in satellite and UAV imagery.
+I found that semantic segmentation of satellite and UAV (unmanned aerial vehicle) images is crucial for understanding and classifying land use and land cover (LULC), identifying environmental patterns, detecting urban growth (e.g. traffic control, building construction, water source maintenance) and managing disaster response (e.g., flood mapping, wildfire detection, object detection, smoke tracking). My project aims to build a robust deep learning pipeline using multiple architectures, such asU-Net, DeepLabV3+, and PSPNet, for segmenting complex and diverse classes in satellite and UAV imagery.
 
 When comparing to standard computer vision tasks, I can observe that aerial imagery prompts several unique challenges that I will classify as follows:
 

@@ -30,7 +30,7 @@ My project for **CSCI S-89 Deep Learning** is motivated by my prior research on 
 
 To evaluate the problem, I trained and compared **three deep learning architectures**: U-Net, DeepLabV3+ and PSPNet. The models were benchmarked on classification accuracy, Intersection over Union (IoU), loss metrics, model size, and qualitative segmentation performance. Training was performed using **Google Colab Pro+**, utilizing an **NVIDIA A100 GPU**, with an estimated **50 compute units per model** and **100 epochs per run**.
 
-Preliminary results suggest that **DeepLabV3+** offers the best trade-off between precision and generalization, while **U-Net** is the most efficient in constrained environments. **PSPNet**, despite its large parameter size, showed weaker performance. This project underscores the importance of balancing model complexity, compute resources, and segmentation quality in real-world remote sensing applications.
+Preliminary results suggest that **DeepLabV3+** offers the best trade-off between precision and generalization, while **U-Net** is the most efficient in constrained environments. **PSPNet**, despite its large parameter size, showed weaker performance. This project underscores the importance of balancing model complexity, compute resources, and segmentation quality in the real-world remote sensing applications.
 
 ---
 ### Executive Summary

@@ -66,7 +66,7 @@ When comparing to standard computer vision tasks, I can observe that aerial imag
 
 -	**Inter-class similarity**: A significant challenge in handling the data is about certain land types (e.g., bare soil vs. urban concrete, forestry or tree lines vs. grassland) can appear visually similar, increasing the risk of misclassification.
 
--	**Image artifacts and noise**: UAV-captured images can suffer from motion blur, variable lighting conditions, or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
+-	**Image artifacts and noise**: UAV-captured images can suffer from motion blur, variable lighting conditions or occlusion due to atmospheric interference. Their angles of images taken can also increase the diversity of objects and artifacts detected. Meanwhile, although satellite-captured images offer a consistent angle from above atmosphere, they can experience obstacles like clouds and shadow that diminish the ground mass coverage and full sizes of objects (such as buildings and cars).
 
 -	**Large image sizes**: Satellite imagery often comes in high resolution, demanding significant computational resources for training and inference. This can easily exceed the standard and complimentary 15GB storage of one Google Drive so I had to purchase a better Drive plan for storing without affecting other purposes.
 

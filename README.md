@@ -35,7 +35,7 @@ Preliminary results suggest that **DeepLabV3+** offers the best trade-off betwee
 ---
 ### Executive Summary
 
-This project tackles multi-class semantic segmentation of high-resolution aerial and satellite imagery, enabling applications like land cover classification, smart city planning, and disaster monitoring. I built deep learning pipelines using UNet, DeepLabV3+ and PSPNet on diverse datasets (UAVID, Bhuvan Land Cover and Dubai SIM).
+This project tackles multi-class semantic segmentation of high-resolution aerial and satellite imagery, enabling applications like land cover classification, smart city planning and disaster monitoring. I built deep learning pipelines using UNet, DeepLabV3+ and PSPNet on diverse datasets (UAVID, Bhuvan Land Cover and Dubai SIM).
 
 Key results:
 - Achieved pixel-level accuracy > 96% approximately
